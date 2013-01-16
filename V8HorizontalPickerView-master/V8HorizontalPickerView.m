@@ -767,11 +767,11 @@
 	}
 }
 
-#pragma mark - UIScrolViewDelegate which is added by yamada
-- (UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    NSLog(@"pinch");
-    return elementImageView;
-}
+//#pragma mark - UIScrolViewDelegate which is added by yamada
+//- (UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView {
+//    NSLog(@"pinch");
+//    return elementImageView;
+//}
 
 @end
 

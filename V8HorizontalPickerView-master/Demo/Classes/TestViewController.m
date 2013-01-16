@@ -62,8 +62,15 @@ int indexCount;
 	pickerView.delegate    = self;
 	pickerView.dataSource  = self;
 	pickerView.selectionPoint = CGPointMake(self.view.frame.size.width/2, 0);
-
-	[self.view addSubview:pickerView];
+    [self.view addSubview:pickerView];
+    
+    //ジェスチャー登録//added by yamada
+    UIPinchGestureRecognizer *twoFingerPinch = [[[UIPinchGestureRecognizer alloc]
+                                                 initWithTarget:self
+                                                 action:@selector(twoFingerPinch:)]
+                                                autorelease];
+    
+    [[self view] addGestureRecognizer:twoFingerPinch];
 
 	self.nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	y = y + tmpFrame.size.height + spacing;
@@ -184,5 +191,13 @@ int indexCount;
 	self.infoLabel.text = [NSString stringWithFormat:@"Selected index %d", index];
 }
 
+
+- (void)twoFingerPinch:(UIPinchGestureRecognizer *)recognizer
+{
+    NSLog(@"Pinch scale: %f", recognizer.scale);
+    CGAffineTransform transform = CGAffineTransformMakeScale(recognizer.scale, recognizer.scale);
+    // you can implement any int/float value in context of what scale you want to zoom in or out
+    self.pickerView.transform = transform;
+}
 
 @end
