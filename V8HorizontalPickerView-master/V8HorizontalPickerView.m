@@ -26,6 +26,7 @@
 	int firstVisibleElement;
 	int lastVisibleElement;
     
+    // added by yamada
     V8HorizontalPickerImageView *elementImageView;
 }
 
@@ -465,6 +466,14 @@
 		UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTapped:)];
 		[_scrollView addGestureRecognizer:tapRecognizer];
 		[tapRecognizer release];
+        
+        //ジェスチャー登録//added by yamada
+        UIPinchGestureRecognizer *twoFingerPinch = [[[UIPinchGestureRecognizer alloc]
+                                                     initWithTarget:self
+                                                     action:@selector(twoFingerPinch:)]
+                                                    autorelease];
+        
+        [_scrollView addGestureRecognizer:twoFingerPinch];
 
 		[self addSubview:_scrollView];
 	}
@@ -767,11 +776,14 @@
 	}
 }
 
-//#pragma mark - UIScrolViewDelegate which is added by yamada
-//- (UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView {
-//    NSLog(@"pinch");
-//    return elementImageView;
-//}
+//ピンチ//added by yamada
+- (void)twoFingerPinch:(UIPinchGestureRecognizer *)recognizer
+{
+    NSLog(@"Pinch scale: %f", recognizer.scale);
+    CGAffineTransform transform = CGAffineTransformMakeScale(recognizer.scale, recognizer.scale);
+    // you can implement any int/float value in context of what scale you want to zoom in or out
+    self.transform = transform;
+}
 
 @end
 

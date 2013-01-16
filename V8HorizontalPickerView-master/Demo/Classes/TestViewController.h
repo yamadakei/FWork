@@ -16,6 +16,5 @@
 @property (nonatomic, retain) V8HorizontalPickerView *pickerView;
 @property (nonatomic, retain) UIButton *nextButton;
 @property (nonatomic, retain) UIButton *reloadButton;
-@property (nonatomic, retain) UILabel *infoLabel;
 
 @end

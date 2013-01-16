@@ -15,7 +15,6 @@ typedef enum {
 } V8HorizontalPickerIndicatorPosition;
 
 
-
 @interface V8HorizontalPickerView : UIView <UIScrollViewDelegate> { }
 
 // delegate and datasources to feed scroll view. this view only maintains a weak reference to these

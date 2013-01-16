@@ -10,10 +10,12 @@
 
 
 @implementation TestViewController
+{
+    UIView *transparentView;
+}
 
 @synthesize pickerView;
 @synthesize nextButton, reloadButton;
-@synthesize infoLabel;
 
 #pragma mark - iVars
 NSMutableArray *titleArray;
@@ -34,7 +36,6 @@ int indexCount;
 	[titleArray   release];
 	[nextButton   release];
 	[reloadButton release];
-	[infoLabel    release];
 	[super dealloc];
 }
 
@@ -64,13 +65,13 @@ int indexCount;
 	pickerView.selectionPoint = CGPointMake(self.view.frame.size.width/2, 0);
     [self.view addSubview:pickerView];
     
-    //ジェスチャー登録//added by yamada
-    UIPinchGestureRecognizer *twoFingerPinch = [[[UIPinchGestureRecognizer alloc]
-                                                 initWithTarget:self
-                                                 action:@selector(twoFingerPinch:)]
-                                                autorelease];
-    
-    [[self view] addGestureRecognizer:twoFingerPinch];
+//    //ジェスチャー登録//added by yamada
+//    UIPinchGestureRecognizer *twoFingerPinch = [[[UIPinchGestureRecognizer alloc]
+//                                                 initWithTarget:self
+//                                                 action:@selector(twoFingerPinch:)]
+//                                                autorelease];
+//    
+//    [[self view] addGestureRecognizer:twoFingerPinch];
 
 	self.nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	y = y + tmpFrame.size.height + spacing;
@@ -88,14 +89,6 @@ int indexCount;
 	[reloadButton addTarget:self action:@selector(reloadButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 	[reloadButton setTitle:@"Reload Data" forState:UIControlStateNormal];
 	[self.view addSubview:reloadButton];
-
-	y = y + tmpFrame.size.height + spacing;
-	tmpFrame = CGRectMake(x, y, width, 50.0f);
-	infoLabel = [[UILabel alloc] initWithFrame:tmpFrame];
-	infoLabel.backgroundColor = [UIColor blackColor];
-	infoLabel.textColor = [UIColor whiteColor];
-	infoLabel.textAlignment = UITextAlignmentCenter;
-	[self.view addSubview:infoLabel];
 }
 
 - (void)viewDidUnload {
@@ -103,7 +96,6 @@ int indexCount;
 	// Release any retained subviews of the main view.
 	self.pickerView = nil;
 	self.nextButton = nil;
-	self.infoLabel  = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -144,11 +136,6 @@ int indexCount;
 	tmpFrame = reloadButton.frame;
 	tmpFrame.origin.y = y;
 	reloadButton.frame = tmpFrame;
-	
-	y = y + tmpFrame.size.height + spacing;
-	tmpFrame = infoLabel.frame;
-	tmpFrame.origin.y = y;
-	infoLabel.frame = tmpFrame;
 
 }
 
@@ -187,17 +174,12 @@ int indexCount;
 	return img.size.width;
 }
 
-- (void)horizontalPickerView:(V8HorizontalPickerView *)picker didSelectElementAtIndex:(NSInteger)index {
-	self.infoLabel.text = [NSString stringWithFormat:@"Selected index %d", index];
-}
-
-
-- (void)twoFingerPinch:(UIPinchGestureRecognizer *)recognizer
-{
-    NSLog(@"Pinch scale: %f", recognizer.scale);
-    CGAffineTransform transform = CGAffineTransformMakeScale(recognizer.scale, recognizer.scale);
-    // you can implement any int/float value in context of what scale you want to zoom in or out
-    self.pickerView.transform = transform;
-}
+//- (void)twoFingerPinch:(UIPinchGestureRecognizer *)recognizer
+//{
+//    NSLog(@"Pinch scale: %f", recognizer.scale);
+//    CGAffineTransform transform = CGAffineTransformMakeScale(recognizer.scale, recognizer.scale);
+//    // you can implement any int/float value in context of what scale you want to zoom in or out
+//    self.pickerView.transform = transform;
+//}
 
 @end
