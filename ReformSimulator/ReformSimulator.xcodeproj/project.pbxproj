@@ -35,6 +35,9 @@
 		B2FF38C016A7995B0062C801 /* 9.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B2FF38B116A7995B0062C801 /* 9.JPG */; };
 		B2FF38C716A79C860062C801 /* RSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF38C616A79C860062C801 /* RSViewController.m */; };
 		B2FF38D716A7F1D40062C801 /* RSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF38D616A7F1D30062C801 /* RSItem.m */; };
+		B2FF38F816A80A6D0062C801 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FF38F616A80A530062C801 /* AVFoundation.framework */; };
+		B2FF38FB16A80A990062C801 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FF38F916A80A8C0062C801 /* CoreMedia.framework */; };
+		B2FF38FE16A80ABE0062C801 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FF38FC16A80AB20062C801 /* CoreVideo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,9 @@
 		B2FF38C616A79C860062C801 /* RSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSViewController.m; sourceTree = "<group>"; };
 		B2FF38D516A7F1D30062C801 /* RSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSItem.h; sourceTree = "<group>"; };
 		B2FF38D616A7F1D30062C801 /* RSItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSItem.m; sourceTree = "<group>"; };
+		B2FF38F616A80A530062C801 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B2FF38F916A80A8C0062C801 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		B2FF38FC16A80AB20062C801 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2FF38FE16A80ABE0062C801 /* CoreVideo.framework in Frameworks */,
+				B2FF38FB16A80A990062C801 /* CoreMedia.framework in Frameworks */,
+				B2FF38F816A80A6D0062C801 /* AVFoundation.framework in Frameworks */,
 				B2FF387E16A791C80062C801 /* UIKit.framework in Frameworks */,
 				B2FF388016A791C80062C801 /* Foundation.framework in Frameworks */,
 				B2FF388216A791C80062C801 /* CoreGraphics.framework in Frameworks */,
@@ -108,6 +117,9 @@
 		B2FF387C16A791C80062C801 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B2FF38FC16A80AB20062C801 /* CoreVideo.framework */,
+				B2FF38F916A80A8C0062C801 /* CoreMedia.framework */,
+				B2FF38F616A80A530062C801 /* AVFoundation.framework */,
 				B2FF387D16A791C80062C801 /* UIKit.framework */,
 				B2FF387F16A791C80062C801 /* Foundation.framework */,
 				B2FF388116A791C80062C801 /* CoreGraphics.framework */,

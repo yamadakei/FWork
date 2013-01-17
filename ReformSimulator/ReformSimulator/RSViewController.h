@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface RSViewController : UIViewController
+{
+    AVCaptureSession*   session;
+}
 
 @end
