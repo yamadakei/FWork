@@ -38,6 +38,7 @@
 		B2FF38F816A80A6D0062C801 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FF38F616A80A530062C801 /* AVFoundation.framework */; };
 		B2FF38FB16A80A990062C801 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FF38F916A80A8C0062C801 /* CoreMedia.framework */; };
 		B2FF38FE16A80ABE0062C801 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FF38FC16A80AB20062C801 /* CoreVideo.framework */; };
+		B2FF390316A8109A0062C801 /* V8HorizontalPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF390116A8109A0062C801 /* V8HorizontalPickerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,9 @@
 		B2FF38F616A80A530062C801 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B2FF38F916A80A8C0062C801 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		B2FF38FC16A80AB20062C801 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		B2FF390016A8109A0062C801 /* V8HorizontalPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V8HorizontalPickerView.h; sourceTree = "<group>"; };
+		B2FF390116A8109A0062C801 /* V8HorizontalPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V8HorizontalPickerView.m; sourceTree = "<group>"; };
+		B2FF390216A8109A0062C801 /* V8HorizontalPickerViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V8HorizontalPickerViewProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 		B2FF388316A791C80062C801 /* ReformSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				B2FF38FF16A8109A0062C801 /* Libraries */,
 				B2FF38A216A7995B0062C801 /* Images */,
 				B2FF388C16A791C80062C801 /* AppDelegate.h */,
 				B2FF388D16A791C80062C801 /* AppDelegate.m */,
@@ -178,6 +183,16 @@
 				B2FF38B116A7995B0062C801 /* 9.JPG */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		B2FF38FF16A8109A0062C801 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B2FF390016A8109A0062C801 /* V8HorizontalPickerView.h */,
+				B2FF390116A8109A0062C801 /* V8HorizontalPickerView.m */,
+				B2FF390216A8109A0062C801 /* V8HorizontalPickerViewProtocol.h */,
+			);
+			path = Libraries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +281,7 @@
 				B2FF388E16A791C80062C801 /* AppDelegate.m in Sources */,
 				B2FF38C716A79C860062C801 /* RSViewController.m in Sources */,
 				B2FF38D716A7F1D40062C801 /* RSItem.m in Sources */,
+				B2FF390316A8109A0062C801 /* V8HorizontalPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
