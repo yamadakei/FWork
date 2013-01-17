@@ -17,7 +17,7 @@
 		B2FF389216A791C80062C801 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2FF389116A791C80062C801 /* Default@2x.png */; };
 		B2FF389416A791C80062C801 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2FF389316A791C80062C801 /* Default-568h@2x.png */; };
 		B2FF389716A791C80062C801 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2FF389516A791C80062C801 /* MainStoryboard.storyboard */; };
-		B2FF389A16A791C80062C801 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF389916A791C80062C801 /* ViewController.m */; };
+		B2FF389A16A791C80062C801 /* RSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF389916A791C80062C801 /* RSViewController.m */; };
 		B2FF38A116A7939F0062C801 /* ReformSimulator.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2FF38A016A7939F0062C801 /* ReformSimulator.plist */; };
 		B2FF38B216A7995B0062C801 /* 1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B2FF38A316A7995B0062C801 /* 1.JPG */; };
 		B2FF38B316A7995B0062C801 /* 10.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B2FF38A416A7995B0062C801 /* 10.JPG */; };
@@ -51,8 +51,8 @@
 		B2FF389116A791C80062C801 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B2FF389316A791C80062C801 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B2FF389616A791C80062C801 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		B2FF389816A791C80062C801 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B2FF389916A791C80062C801 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B2FF389816A791C80062C801 /* RSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSViewController.h; sourceTree = "<group>"; };
+		B2FF389916A791C80062C801 /* RSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSViewController.m; sourceTree = "<group>"; };
 		B2FF38A016A7939F0062C801 /* ReformSimulator.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReformSimulator.plist; sourceTree = "<group>"; };
 		B2FF38A316A7995B0062C801 /* 1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.JPG; sourceTree = "<group>"; };
 		B2FF38A416A7995B0062C801 /* 10.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.JPG; sourceTree = "<group>"; };
@@ -119,8 +119,8 @@
 				B2FF388C16A791C80062C801 /* AppDelegate.h */,
 				B2FF388D16A791C80062C801 /* AppDelegate.m */,
 				B2FF389516A791C80062C801 /* MainStoryboard.storyboard */,
-				B2FF389816A791C80062C801 /* ViewController.h */,
-				B2FF389916A791C80062C801 /* ViewController.m */,
+				B2FF389816A791C80062C801 /* RSViewController.h */,
+				B2FF389916A791C80062C801 /* RSViewController.m */,
 				B2FF388416A791C80062C801 /* Supporting Files */,
 				B2FF38A016A7939F0062C801 /* ReformSimulator.plist */,
 			);
@@ -247,7 +247,7 @@
 			files = (
 				B2FF388A16A791C80062C801 /* main.m in Sources */,
 				B2FF388E16A791C80062C801 /* AppDelegate.m in Sources */,
-				B2FF389A16A791C80062C801 /* ViewController.m in Sources */,
+				B2FF389A16A791C80062C801 /* RSViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
