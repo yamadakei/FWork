@@ -1,23 +1,37 @@
 //
-//  ViewController.m
+//  RSViewController.m
 //  ReformSimulator
 //
 //  Created by 山田 慶 on 2013/01/17.
 //  Copyright (c) 2013年 山田 慶. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "RSViewController.h"
+#import "AppDelegate.h"
 
-@interface ViewController ()
+@interface RSViewController ()
+{
+//    RSDataArray *rsDataArray;
+}
 
 @end
 
-@implementation ViewController
+@implementation RSViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+
 }
 
 - (void)didReceiveMemoryWarning

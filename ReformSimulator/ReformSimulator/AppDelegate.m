@@ -8,11 +8,34 @@
 
 #import "AppDelegate.h"
 
+//データ型のインポート宣言
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"ReformSimulator" ofType:@"plist"];
+    NSDictionary *rsDictionary = [NSDictionary dictionaryWithContentsOfFile:path];
+    
+    NSMutableArray* temp = [[NSMutableArray alloc] init];
+    temp =[rsDictionary objectForKey:@"ROOT"];
+    
+    _imageItems = [[NSMutableArray alloc] init];
+    _logoItems = [[NSMutableArray alloc] init];
+    _descriptionItems = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < [temp count]; i++) {
+        RSItem *item = [[RSItem alloc] init];
+        NSDictionary *tempDictionary = [[NSDictionary alloc]init];
+        tempDictionary = [temp objectAtIndex:i];
+        item.image = [tempDictionary objectForKey:@"image"];
+        item.logo = [tempDictionary objectForKey:@"logo"];
+        item.description = [tempDictionary objectForKey:@"description"];
+        [_imageItems addObject:item.image];
+        [_logoItems addObject:item.image];
+        [_descriptionItems addObject:item.image];
+    }
+    
     return YES;
 }
 							
