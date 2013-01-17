@@ -25,7 +25,6 @@
 		76E61B1D13BD6A6B0062C954 /* airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 76E61B1B13BD6A6B0062C954 /* airplane.png */; };
 		76E61B1E13BD6A6B0062C954 /* airplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76E61B1C13BD6A6B0062C954 /* airplane@2x.png */; };
 		76EFB41D124789F5003020A7 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EFB41B124789F5003020A7 /* TestViewController.m */; };
-		92317D9D16A6C0B8008CE26C /* GitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 92317D9C16A6C0B8008CE26C /* GitTest.m */; };
 		B2FF384716A588920062C801 /* 1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B2FF383816A588920062C801 /* 1.JPG */; };
 		B2FF384816A588920062C801 /* 2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B2FF383916A588920062C801 /* 2.JPG */; };
 		B2FF384916A588920062C801 /* 3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B2FF383A16A588920062C801 /* 3.JPG */; };
@@ -69,8 +68,6 @@
 		76EFB41B124789F5003020A7 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		76FB0D2712496F9100407B4A /* V8HorizontalPickerViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = V8HorizontalPickerViewProtocol.h; path = ../V8HorizontalPickerViewProtocol.h; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* HorzPickerTestApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "HorzPickerTestApp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		92317D9B16A6C0B8008CE26C /* GitTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitTest.h; sourceTree = "<group>"; };
-		92317D9C16A6C0B8008CE26C /* GitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitTest.m; sourceTree = "<group>"; };
 		B2FF383816A588920062C801 /* 1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.JPG; sourceTree = "<group>"; };
 		B2FF383916A588920062C801 /* 2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.JPG; sourceTree = "<group>"; };
 		B2FF383A16A588920062C801 /* 3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.JPG; sourceTree = "<group>"; };
@@ -108,8 +105,6 @@
 				76321F0F15051FDE00FACD9F /* V8HorizontalPickerView Classes */,
 				76EFB41A124789F5003020A7 /* TestViewController.h */,
 				76EFB41B124789F5003020A7 /* TestViewController.m */,
-				92317D9B16A6C0B8008CE26C /* GitTest.h */,
-				92317D9C16A6C0B8008CE26C /* GitTest.m */,
 				1D3623240D0F684500981E51 /* HorzPickerTestAppAppDelegate.h */,
 				1D3623250D0F684500981E51 /* HorzPickerTestAppAppDelegate.m */,
 			);
@@ -300,7 +295,6 @@
 				1D3623260D0F684500981E51 /* HorzPickerTestAppAppDelegate.m in Sources */,
 				76EFB41D124789F5003020A7 /* TestViewController.m in Sources */,
 				765B8AB5124846E300BDE37E /* V8HorizontalPickerView.m in Sources */,
-				92317D9D16A6C0B8008CE26C /* GitTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +312,7 @@
 				GCC_PREFIX_HEADER = HorzPickerTestApp_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "HorzPickerTestApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = HorzPickerTestApp;
 			};
 			name = Debug;
@@ -331,6 +326,7 @@
 				GCC_PREFIX_HEADER = HorzPickerTestApp_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "HorzPickerTestApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = HorzPickerTestApp;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -362,6 +358,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "V8TESTINGUI=1";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "HorzPickerTestApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = HorzPickerTestApp;
 			};
 			name = Testing;

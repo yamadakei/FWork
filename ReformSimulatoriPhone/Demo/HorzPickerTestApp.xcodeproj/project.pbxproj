@@ -40,7 +40,9 @@
 		B2FF385316A588920062C801 /* 13.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B2FF384416A588920062C801 /* 13.JPG */; };
 		B2FF385416A588920062C801 /* 14.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B2FF384516A588920062C801 /* 14.JPG */; };
 		B2FF385516A588920062C801 /* 15.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B2FF384616A588920062C801 /* 15.JPG */; };
-		B2FF386D16A6E9870062C801 /* V8HorizontalPickerView+AddImageInside.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF386C16A6E9870062C801 /* V8HorizontalPickerView+AddImageInside.m */; };
+		B2FF399016A83AE10062C801 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FF398F16A83AE10062C801 /* CoreMedia.framework */; };
+		B2FF399316A83AE60062C801 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FF399216A83AE60062C801 /* CoreVideo.framework */; };
+		B2FF399516A83AEC0062C801 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FF399416A83AEC0062C801 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,8 +86,9 @@
 		B2FF384416A588920062C801 /* 13.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 13.JPG; sourceTree = "<group>"; };
 		B2FF384516A588920062C801 /* 14.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 14.JPG; sourceTree = "<group>"; };
 		B2FF384616A588920062C801 /* 15.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 15.JPG; sourceTree = "<group>"; };
-		B2FF386B16A6E9870062C801 /* V8HorizontalPickerView+AddImageInside.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "V8HorizontalPickerView+AddImageInside.h"; sourceTree = SOURCE_ROOT; };
-		B2FF386C16A6E9870062C801 /* V8HorizontalPickerView+AddImageInside.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "V8HorizontalPickerView+AddImageInside.m"; sourceTree = SOURCE_ROOT; };
+		B2FF398F16A83AE10062C801 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		B2FF399216A83AE60062C801 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		B2FF399416A83AEC0062C801 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2FF399516A83AEC0062C801 /* AVFoundation.framework in Frameworks */,
+				B2FF399316A83AE60062C801 /* CoreVideo.framework in Frameworks */,
+				B2FF399016A83AE10062C801 /* CoreMedia.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -125,6 +131,9 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				B2FF399416A83AEC0062C801 /* AVFoundation.framework */,
+				B2FF399216A83AE60062C801 /* CoreVideo.framework */,
+				B2FF398F16A83AE10062C801 /* CoreMedia.framework */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -169,8 +178,6 @@
 				76FB0D2712496F9100407B4A /* V8HorizontalPickerViewProtocol.h */,
 				765B8AB3124846E300BDE37E /* V8HorizontalPickerView.h */,
 				765B8AB4124846E300BDE37E /* V8HorizontalPickerView.m */,
-				B2FF386B16A6E9870062C801 /* V8HorizontalPickerView+AddImageInside.h */,
-				B2FF386C16A6E9870062C801 /* V8HorizontalPickerView+AddImageInside.m */,
 			);
 			name = "V8HorizontalPickerView Classes";
 			sourceTree = "<group>";
@@ -300,7 +307,6 @@
 				1D3623260D0F684500981E51 /* HorzPickerTestAppAppDelegate.m in Sources */,
 				76EFB41D124789F5003020A7 /* TestViewController.m in Sources */,
 				765B8AB5124846E300BDE37E /* V8HorizontalPickerView.m in Sources */,
-				B2FF386D16A6E9870062C801 /* V8HorizontalPickerView+AddImageInside.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +324,7 @@
 				GCC_PREFIX_HEADER = HorzPickerTestApp_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "HorzPickerTestApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = HorzPickerTestApp;
 			};
 			name = Debug;
@@ -331,6 +338,7 @@
 				GCC_PREFIX_HEADER = HorzPickerTestApp_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "HorzPickerTestApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = HorzPickerTestApp;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -362,6 +370,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "V8TESTINGUI=1";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "HorzPickerTestApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = HorzPickerTestApp;
 			};
 			name = Testing;

@@ -10,9 +10,6 @@
 
 
 @implementation TestViewController
-{
-    UIView *transparentView;
-}
 
 @synthesize pickerView;
 @synthesize nextButton, reloadButton;
@@ -48,6 +45,40 @@ int indexCount;
 #pragma mark - View Management Methods
 - (void)viewDidLoad {
 	[super viewDidLoad];
+    
+    // ビデオキャプチャデバイスの取得
+    AVCaptureDevice* device;
+    device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    
+    // デバイス入力の取得
+    AVCaptureDeviceInput* deviceInput;
+    deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:NULL];
+    
+    // ビデオデータ出力の作成
+    NSMutableDictionary* settings;
+    AVCaptureVideoDataOutput* dataOutput;
+    settings = [NSMutableDictionary dictionary];
+    [settings setObject:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA]
+                 forKey:(id)kCVPixelBufferPixelFormatTypeKey];
+    dataOutput = [[AVCaptureVideoDataOutput alloc] init];
+    dataOutput.videoSettings = settings;
+    [dataOutput setSampleBufferDelegate:self queue:dispatch_get_main_queue()];
+    
+    // セッションの作成
+    session = [[AVCaptureSession alloc] init];
+    [session addInput:deviceInput];
+    [session addOutput:dataOutput];
+    
+    // ビデオの解像度 Midium
+    if ([session canSetSessionPreset:AVCaptureSessionPresetMedium]) {
+        session.sessionPreset = AVCaptureSessionPresetMedium;
+    }
+    
+    // セッションの開始
+    [session startRunning];
+    
+//    [self createCaptureSession];
+
 
 	self.view.backgroundColor = [UIColor blackColor];
 	CGFloat margin = 0.0f;
@@ -57,6 +88,9 @@ int indexCount;
 	CGFloat y = 0.0f;
 	CGFloat spacing = 50.0f;
 	CGRect tmpFrame = CGRectMake(x, y, width, pickerHeight);
+    
+    _rsImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view addSubview:_rsImageView];
 
 	pickerView = [[V8HorizontalPickerView alloc] initWithFrame:tmpFrame];
 	pickerView.backgroundColor   = [UIColor clearColor];
@@ -64,14 +98,6 @@ int indexCount;
 	pickerView.dataSource  = self;
 	pickerView.selectionPoint = CGPointMake(self.view.frame.size.width/2, 0);
     [self.view addSubview:pickerView];
-    
-//    //ジェスチャー登録//added by yamada
-//    UIPinchGestureRecognizer *twoFingerPinch = [[[UIPinchGestureRecognizer alloc]
-//                                                 initWithTarget:self
-//                                                 action:@selector(twoFingerPinch:)]
-//                                                autorelease];
-//    
-//    [[self view] addGestureRecognizer:twoFingerPinch];
 
 	self.nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	y = y + tmpFrame.size.height + spacing;
@@ -174,12 +200,95 @@ int indexCount;
 	return img.size.width;
 }
 
-//- (void)twoFingerPinch:(UIPinchGestureRecognizer *)recognizer
-//{
-//    NSLog(@"Pinch scale: %f", recognizer.scale);
-//    CGAffineTransform transform = CGAffineTransformMakeScale(recognizer.scale, recognizer.scale);
-//    // you can implement any int/float value in context of what scale you want to zoom in or out
-//    self.pickerView.transform = transform;
-//}
+#pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate
+
+- (void)captureOutput:(AVCaptureOutput*)captureOutput
+didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
+       fromConnection:(AVCaptureConnection*)connection
+{
+    // イメージバッファの取得
+    CVImageBufferRef buffer;
+    buffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+    
+    // イメージバッファのロック
+    CVPixelBufferLockBaseAddress(buffer, 0);
+    
+    // イメージバッファ情報の取得
+    uint8_t *base;
+    size_t width, height, bytesPerRow;
+    base = CVPixelBufferGetBaseAddress(buffer);
+    width = CVPixelBufferGetWidth(buffer);
+    height = CVPixelBufferGetHeight(buffer);
+    bytesPerRow = CVPixelBufferGetBytesPerRow(buffer);
+    
+    // ビットマップコンテキストの作成
+    CGColorSpaceRef colorSpace;
+    CGContextRef    cgContext;
+    colorSpace = CGColorSpaceCreateDeviceRGB();
+    cgContext = CGBitmapContextCreate(base, width, height, 8, bytesPerRow, colorSpace,
+                                      kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
+    CGColorSpaceRelease(colorSpace);
+    
+    // 画像の作成
+    CGImageRef  cgImage;
+    UIImage*    image;
+    cgImage = CGBitmapContextCreateImage(cgContext);
+    image = [UIImage imageWithCGImage:cgImage scale:1.0f
+                          orientation:UIImageOrientationRight];
+    CGImageRelease(cgImage);
+    CGContextRelease(cgContext);
+    
+    // イメージバッファのアンロック
+    CVPixelBufferUnlockBaseAddress(buffer, 0);
+    
+    // 画像の表示
+    _rsImageView.image = image;
+}
+
+- (void)createCaptureSession {
+    
+	session = [[AVCaptureSession alloc] init];
+    
+	// 入力を設定
+	AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    
+    // もしVideo Deviceが無い場合の処理
+    if (!device) {
+        NSLog(@"ビデオ無し.........");
+        return;
+    }
+    
+    session.sessionPreset = AVCaptureSessionPresetHigh;
+    
+	NSAssert(device != nil, @"Failed to get video device");
+	NSError *error;
+	AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
+	NSAssert1(!error, @"Failed to get input: %@", error);
+	NSAssert([session canAddInput:input], @"cannot add input");
+	[session addInput:input];
+    
+    // AVCaptureStillImageOutputで静止画出力を作る
+    _stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
+    NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    AVVideoCodecJPEG, AVVideoCodecKey, nil];
+    _stillImageOutput.outputSettings = outputSettings;
+    [outputSettings release];
+	
+	// 出力を設定
+	AVCaptureVideoDataOutput *output = [[AVCaptureVideoDataOutput alloc] init];
+	[output setVideoSettings:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA]
+														 forKey:(id)kCVPixelBufferPixelFormatTypeKey]];
+	dispatch_queue_t queue = dispatch_queue_create(NULL, NULL);
+	[output setSampleBufferDelegate:self queue:queue];
+	dispatch_release(queue);
+	NSAssert([session canAddOutput:output], @"cannot add output");
+	[session addOutput:output];
+    
+    // セッションに出力を追加
+    [session addOutput:_stillImageOutput];
+    
+	[output release];
+}
+
 
 @end

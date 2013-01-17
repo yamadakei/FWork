@@ -10,9 +10,6 @@
 
 
 @implementation TestViewController
-{
-    UIView *transparentView;
-}
 
 @synthesize pickerView;
 @synthesize nextButton, reloadButton;
@@ -64,14 +61,6 @@ int indexCount;
 	pickerView.dataSource  = self;
 	pickerView.selectionPoint = CGPointMake(self.view.frame.size.width/2, 0);
     [self.view addSubview:pickerView];
-    
-//    //ジェスチャー登録//added by yamada
-//    UIPinchGestureRecognizer *twoFingerPinch = [[[UIPinchGestureRecognizer alloc]
-//                                                 initWithTarget:self
-//                                                 action:@selector(twoFingerPinch:)]
-//                                                autorelease];
-//    
-//    [[self view] addGestureRecognizer:twoFingerPinch];
 
 	self.nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	y = y + tmpFrame.size.height + spacing;
@@ -173,13 +162,5 @@ int indexCount;
     UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%@",[titleArray objectAtIndex:index]]];
 	return img.size.width;
 }
-
-//- (void)twoFingerPinch:(UIPinchGestureRecognizer *)recognizer
-//{
-//    NSLog(@"Pinch scale: %f", recognizer.scale);
-//    CGAffineTransform transform = CGAffineTransformMakeScale(recognizer.scale, recognizer.scale);
-//    // you can implement any int/float value in context of what scale you want to zoom in or out
-//    self.pickerView.transform = transform;
-//}
 
 @end
