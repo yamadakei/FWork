@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface RSViewController : UIViewController
+@interface RSViewController : UIViewController<AVCaptureVideoDataOutputSampleBufferDelegate>
 {
-    AVCaptureSession*   session;
+    AVCaptureSession* session;
 }
+@property (strong, nonatomic) IBOutlet UIImageView *rsImageView;
 
 @end
